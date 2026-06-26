@@ -1,4 +1,4 @@
-package com.ia_image_generator.image_generate.kafka.config;
+package com.ia_image_generator.image_generate.infra.kafka.config;
 
 import com.ia_image_generator.image_generate.dto.ImageRequestDTO;
 import org.apache.kafka.clients.consumer.ConsumerConfig;

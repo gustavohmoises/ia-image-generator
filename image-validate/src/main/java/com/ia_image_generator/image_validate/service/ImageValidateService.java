@@ -1,14 +1,14 @@
 package com.ia_image_generator.image_validate.service;
 
 import com.ia_image_generator.image_validate.dto.ImageRequestDTO;
-import com.ia_image_generator.image_validate.kafka.producer.ValidateProducer;
+import com.ia_image_generator.image_validate.infra.kafka.producer.ValidateProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class ValidateService {
+public class ImageValidateService {
 
     @Autowired
     private ValidateProducer validateProducer;

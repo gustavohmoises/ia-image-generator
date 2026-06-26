@@ -1,7 +1,6 @@
-package com.ia_image_generator.image_request.kafka.config;
+package com.ia_image_generator.image_validate.infra.kafka.config;
 
-import org.springframework.kafka.support.serializer.JacksonJsonSerializer;
-import com.ia_image_generator.image_request.dto.ImageRequestDTO;
+import com.ia_image_generator.image_validate.dto.ImageRequestDTO;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
+import org.springframework.kafka.support.serializer.JacksonJsonSerializer;
 
 import java.util.HashMap;
 import java.util.Map;

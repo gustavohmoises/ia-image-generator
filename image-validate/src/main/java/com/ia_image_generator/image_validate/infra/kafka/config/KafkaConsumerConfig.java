@@ -1,4 +1,4 @@
-package com.ia_image_generator.image_validate.kafka.config;
+package com.ia_image_generator.image_validate.infra.kafka.config;
 
 import com.ia_image_generator.image_validate.dto.ImageRequestDTO;
 import org.apache.kafka.clients.consumer.ConsumerConfig;

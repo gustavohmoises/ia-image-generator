@@ -1,4 +1,4 @@
-package com.ia_image_generator.image_request.kafka.producer;
+package com.ia_image_generator.image_request.infra.kafka.producer;
 
 import com.ia_image_generator.image_request.dto.ImageRequestDTO;
 import org.springframework.beans.factory.annotation.Autowired;
