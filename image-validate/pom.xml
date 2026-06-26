@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ia-image-generator</groupId>
-	<artifactId>image-validator</artifactId>
+	<artifactId>image-validate</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name/>
 	<description/>

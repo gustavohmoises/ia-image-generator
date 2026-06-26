@@ -16,10 +16,18 @@ public class RequestService {
     public ImageRequestDTO registerRequest(ImageRequestDTO dto) {
         ImageRequestDTO request = new ImageRequestDTO();
 
-        request.setRequestId(UUID.randomUUID());
+        UUID requestId = dto.getRequestId() != null
+                ? dto.getRequestId()
+                : UUID.randomUUID();
+
+        Instant timestamp = dto.getTimestamp() != null
+                ? dto.getTimestamp()
+                : Instant.now();
+
+        request.setRequestId(requestId);
+        request.setTimestamp(timestamp);
         request.setUserId(dto.getUserId());
         request.setPrompt(dto.getPrompt());
-        request.setTimestamp(Instant.now());
 
         requestProducer.sendRequest(request);
 
