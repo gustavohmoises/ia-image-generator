@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/ia-image-generator.iml" filepath="$PROJECT_DIR$/.idea/ia-image-generator.iml" />
-      <module fileurl="file://$PROJECT_DIR$/image-processor/image-processor.iml" filepath="$PROJECT_DIR$/image-processor/image-processor.iml" />
     </modules>
   </component>
 </project>
