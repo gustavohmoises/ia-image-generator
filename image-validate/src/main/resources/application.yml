@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: image-validate
+
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: admin
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/ia-image-generator}
+    password: admin
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+
+  flyway:
+    baseline-on-migrate: 'true'
+    table: flyway_schema_history_ms_validate
+
+server:
+  port: '8081'
