@@ -2,6 +2,7 @@ package com.ia_image_generator.image_validate.service;
 
 import com.ia_image_generator.image_validate.dto.ImageRequestDTO;
 import com.ia_image_generator.image_validate.infra.kafka.producer.ValidateProducer;
+import com.ia_image_generator.image_validate.repository.ForbiddenWordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,20 +14,23 @@ public class ImageValidateService {
     @Autowired
     private ValidateProducer validateProducer;
 
-    private final List<String> forbiddenWords = List.of(
-            "arma",
-            "drogas",
-            "nude",
-            "sexo"
-    );
+    @Autowired
+    private ForbiddenWordRepository forbiddenWordRepository;
 
     private boolean isValid(String prompt) {
         if (prompt == null || prompt.isBlank()) {
             return false;
         }
 
-        String normalized = prompt.toLowerCase();
-        return forbiddenWords.stream().noneMatch(normalized::contains);
+        String normalizedPrompt = prompt.toLowerCase();
+
+        List<String> forbiddenWords = forbiddenWordRepository
+                .findAll()
+                .stream()
+                .map(word -> word.getWord().toLowerCase())
+                .toList();
+
+        return forbiddenWords.stream().noneMatch(normalizedPrompt::contains);
     }
 
     public void process(ImageRequestDTO request) {
