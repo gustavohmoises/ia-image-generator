@@ -20,5 +20,10 @@ spring:
     baseline-on-migrate: 'true'
     table: flyway_schema_history_ms_validate
 
+api:
+  security:
+    token:
+      secret: ${JWT_SECRET:S3cre7key}
+
 server:
   port: '8081'

@@ -4,63 +4,77 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e69de6aa-f490-428f-9ab3-44821c41f725" name="Changes" comment="refactor: properties to yaml">
-      <change afterPath="$PROJECT_DIR$/image-validate/src/main/java/com/ia_image_generator/image_validate/controller/ForbiddenWordController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image-validate/src/main/java/com/ia_image_generator/image_validate/entity/ForbiddenWord.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image-validate/src/main/java/com/ia_image_generator/image_validate/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image-validate/src/main/java/com/ia_image_generator/image_validate/repository/ForbiddenWordRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image-validate/src/main/java/com/ia_image_generator/image_validate/service/ForbiddenWordService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image-validate/src/main/resources/db/migration/V1__create_forbidden_words_table.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="e69de6aa-f490-428f-9ab3-44821c41f725" name="Changes" comment=".idea files">
+      <change afterPath="$PROJECT_DIR$/image-validate/src/main/java/com/ia_image_generator/image_validate/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image-validate/src/main/java/com/ia_image_generator/image_validate/dto/ForbiddenWordCreateDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image-validate/src/main/java/com/ia_image_generator/image_validate/dto/LoginDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image-validate/src/main/java/com/ia_image_generator/image_validate/dto/LoginResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image-validate/src/main/java/com/ia_image_generator/image_validate/dto/RegisterDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image-validate/src/main/java/com/ia_image_generator/image_validate/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image-validate/src/main/java/com/ia_image_generator/image_validate/entity/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image-validate/src/main/java/com/ia_image_generator/image_validate/infra/openapi/OpenApiConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image-validate/src/main/java/com/ia_image_generator/image_validate/infra/security/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image-validate/src/main/java/com/ia_image_generator/image_validate/infra/security/SecurityFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image-validate/src/main/java/com/ia_image_generator/image_validate/infra/security/TokenService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image-validate/src/main/java/com/ia_image_generator/image_validate/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image-validate/src/main/java/com/ia_image_generator/image_validate/service/AuthorizationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image-validate/src/main/resources/db/migration/V2__create_users_table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/image-validate/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/image-validate/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image-validate/src/main/java/com/ia_image_generator/image_validate/service/ImageValidateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/image-validate/src/main/java/com/ia_image_generator/image_validate/service/ImageValidateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image-validate/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image-validate/src/main/java/com/ia_image_generator/image_validate/controller/ForbiddenWordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/image-validate/src/main/java/com/ia_image_generator/image_validate/controller/ForbiddenWordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image-validate/src/main/java/com/ia_image_generator/image_validate/service/ForbiddenWordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/image-validate/src/main/java/com/ia_image_generator/image_validate/service/ForbiddenWordService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image-validate/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/image-validate/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Record" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "gustavohmoises"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;gustavohmoises&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/gustavohmoises/ia-image-generator.git",
-    "accountId": "9ee5284b-4623-4acb-a831-216a206b48ec"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/gustavohmoises/ia-image-generator.git&quot;,
+    &quot;accountId&quot;: &quot;9ee5284b-4623-4acb-a831-216a206b48ec&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 4
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="3FuOdp11XGpl0vkUpXwbblbVx8K" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ImageValidateApplication.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/xampp/htdocs/ia-image-generator"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ImageValidateApplication.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/ia-image-generator&quot;
   }
-}]]></component>
+}</component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="e69de6aa-f490-428f-9ab3-44821c41f725" name="Changes" comment="" />
@@ -77,11 +91,38 @@
       <option name="project" value="LOCAL" />
       <updated>1782927320307</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat: crud forbidden words">
+      <option name="closed" value="true" />
+      <created>1782927444642</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1782927444642</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: exception">
+      <option name="closed" value="true" />
+      <created>1782927576230</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1782927576230</updated>
+    </task>
+    <task id="LOCAL-00004" summary=".idea files">
+      <option name="closed" value="true" />
+      <created>1782927594278</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1782927594278</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="refactor: properties to yaml" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: properties to yaml" />
+    <MESSAGE value="feat: crud forbidden words" />
+    <MESSAGE value="feat: exception" />
+    <MESSAGE value=".idea files" />
+    <option name="LAST_COMMIT_MESSAGE" value=".idea files" />
   </component>
 </project>

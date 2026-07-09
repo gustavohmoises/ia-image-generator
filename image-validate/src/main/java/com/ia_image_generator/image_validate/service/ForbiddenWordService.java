@@ -1,5 +1,6 @@
 package com.ia_image_generator.image_validate.service;
 
+import com.ia_image_generator.image_validate.dto.ForbiddenWordCreateDTO;
 import com.ia_image_generator.image_validate.entity.ForbiddenWord;
 import com.ia_image_generator.image_validate.repository.ForbiddenWordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,8 @@ public class ForbiddenWordService {
     @Autowired
     private ForbiddenWordRepository forbiddenWordRepository;
 
-    public ForbiddenWord create(ForbiddenWord forbiddenWord) {
-        forbiddenWordRepository.findByWord(forbiddenWord.getWord())
+    public ForbiddenWord create(ForbiddenWordCreateDTO forbiddenWord) {
+        forbiddenWordRepository.findByWord(forbiddenWord.word())
                 .ifPresent(word -> {
                     throw new IllegalArgumentException(
                             "Palavra já cadastrada."
@@ -22,7 +23,7 @@ public class ForbiddenWordService {
                 });
 
         ForbiddenWord entity = ForbiddenWord.builder()
-                .word(forbiddenWord.getWord().trim().toLowerCase())
+                .word(forbiddenWord.word().trim().toLowerCase())
                 .build();
 
         return forbiddenWordRepository.save(entity);
