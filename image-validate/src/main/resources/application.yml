@@ -8,17 +8,13 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     username: admin
-    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/ia-image-generator}
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5433/image-validate}
     password: admin
 
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: validate
-
-  flyway:
-    baseline-on-migrate: 'true'
-    table: flyway_schema_history_ms_validate
 
 api:
   security:

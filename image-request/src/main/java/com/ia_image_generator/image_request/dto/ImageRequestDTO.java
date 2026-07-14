@@ -2,23 +2,19 @@ package com.ia_image_generator.image_request.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.*;
 
 import java.time.Instant;
 import java.util.UUID;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-public class ImageRequestDTO {
-    private UUID requestId;
+public record ImageRequestDTO(
+        UUID requestId,
 
-    @NotNull(message = "userId é obrigatório")
-    private Long userId;
+        @NotNull(message = "userId é obrigatório")
+        Long userId,
 
-    @NotBlank(message = "prompt é obrigatório")
-    private String prompt;
+        @NotBlank(message = "prompt é obrigatório")
+        String prompt,
 
-    private Instant timestamp;
+        Instant timestamp
+) {
 }

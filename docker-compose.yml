@@ -1,14 +1,39 @@
 services:
-  postgres:
+  postgres-request:
     image: postgres:16
-    container_name: postgres
-    restart: unless-stopped
+    container_name: postgres-request
     environment:
-      POSTGRES_DB: ia-image-generator
+      POSTGRES_DB: image-request
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
     ports:
       - "5432:5432"
+    volumes:
+      - postgres_request_data:/var/lib/postgresql/data
+
+  postgres-validate:
+    image: postgres:16
+    container_name: postgres-validate
+    environment:
+      POSTGRES_DB: image-validate
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_validate_data:/var/lib/postgresql/data
+
+  postgres-generate:
+    image: postgres:16
+    container_name: postgres-generate
+    environment:
+      POSTGRES_DB: image-generate
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres_generate_data:/var/lib/postgresql/data
 
   kafka:
     image: apache/kafka:latest
@@ -45,8 +70,10 @@ services:
       - "8080:8080"
     depends_on:
       - kafka
+      - postgres-request
     environment:
       KAFKA_BOOTSTRAP_SERVERS: kafka:9093
+      DATABASE_URL: jdbc:postgresql://postgres-request:5432/image-request
 
   image-validate:
     container_name: image-validate
@@ -55,10 +82,10 @@ services:
       - "8081:8081"
     depends_on:
       - kafka
-      - postgres
+      - postgres-validate
     environment:
       KAFKA_BOOTSTRAP_SERVERS: kafka:9093
-      DATABASE_URL: jdbc:postgresql://postgres:5432/ia-image-generator
+      DATABASE_URL: jdbc:postgresql://postgres-validate:5432/image-validate
       JWT_SECRET: S3cre7key
 
   image-generate:
@@ -68,10 +95,12 @@ services:
       - "8082:8082"
     depends_on:
       - kafka
-      - postgres
+      - postgres-generate
     environment:
       KAFKA_BOOTSTRAP_SERVERS: kafka:9093
-      DATABASE_URL: jdbc:postgresql://postgres:5432/ia-image-generator
+      DATABASE_URL: jdbc:postgresql://postgres-generate:5432/image-generate
 
 volumes:
-  postgres_data:
+  postgres_request_data:
+  postgres_validate_data:
+  postgres_generate_data:

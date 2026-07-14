@@ -1,14 +1,19 @@
-package com.ia_image_generator.image_generate.entity;
+package com.ia_image_generator.image_request.entity;
 
 import jakarta.persistence.*;
-import lombok.Builder;
+import lombok.*;
 
+import java.time.Instant;
 import java.util.UUID;
 
 @Entity
-@Table(name = "images")
+@Table(name = "images_requested")
+@Getter
+@Setter
 @Builder
-public class Image {
+@AllArgsConstructor
+@NoArgsConstructor
+public class ImageRequested {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,4 +26,7 @@ public class Image {
 
     @Column(nullable = false)
     private String prompt;
+
+    @Column(name = "requested_at", nullable = false)
+    private Instant requestedAt;
 }

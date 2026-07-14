@@ -1,32 +1,34 @@
 package com.ia_image_generator.image_generate.service;
 
 import com.ia_image_generator.image_generate.dto.ImageRequestDTO;
-import com.ia_image_generator.image_generate.entity.Image;
-import com.ia_image_generator.image_generate.repository.ImageRepository;
+import com.ia_image_generator.image_generate.entity.ImageGenerated;
+import com.ia_image_generator.image_generate.repository.ImageGeneratedRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
+
 @Service
 public class ImageGenerateService {
-
     @Autowired
-    private ImageRepository imageRepository;
+    private ImageGeneratedRepository imageGeneratedRepository;
 
     public void process(ImageRequestDTO request) {
 
-        Image image = Image.builder()
-                .requestId(request.getRequestId())
-                .userId(request.getUserId())
-                .prompt(request.getPrompt())
-                .build();
+        ImageGenerated imageGenerated = new ImageGenerated();
+        imageGenerated.setRequestId(request.requestId());
+        imageGenerated.setUserId(request.userId());
+        imageGenerated.setPrompt(request.prompt());
+        imageGenerated.setRequestedAt(request.timestamp());
+        imageGenerated.setCreatedAt(Instant.now());
 
         try {
-            imageRepository.save(image);
+            imageGeneratedRepository.save(imageGenerated);
         } catch (DataIntegrityViolationException ex) {
             System.out.printf(
                     "[INFO] Imagem ID [%s] já foi processada.%n",
-                    request.getRequestId()
+                    request.requestId()
             );
 
             return;
@@ -34,9 +36,9 @@ public class ImageGenerateService {
 
         System.out.printf(
                 "[INFO] Imagem ID [%s] solicitada pelo usuário [%s] gerada com sucesso: [%s]%n",
-                request.getRequestId(),
-                request.getUserId(),
-                request.getPrompt()
+                request.requestId(),
+                request.userId(),
+                request.prompt()
         );
     }
 }

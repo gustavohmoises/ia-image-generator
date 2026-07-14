@@ -35,16 +35,16 @@ public class ImageValidateService {
 
     public void process(ImageRequestDTO request) {
 
-        boolean valid = this.isValid(request.getPrompt());
+        boolean valid = this.isValid(request.prompt());
 
         if (valid) {
             validateProducer.sendApproved(request);
 
             System.out.printf(
                 "[APPROVED] Request ID [%s] | User [%s] | Prompt [%s]%n",
-                request.getRequestId(),
-                request.getUserId(),
-                request.getPrompt()
+                request.requestId(),
+                request.userId(),
+                request.prompt()
             );
 
             return;
@@ -54,9 +54,9 @@ public class ImageValidateService {
 
         System.out.printf(
             "[REJECTED] Request ID [%s] | User [%s] | Prompt [%s]%n",
-            request.getRequestId(),
-            request.getUserId(),
-            request.getPrompt()
+            request.requestId(),
+            request.userId(),
+            request.prompt()
         );
     }
 }
