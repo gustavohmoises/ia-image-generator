@@ -63,6 +63,27 @@ services:
       KAFKA_CLUSTERS_0_NAME: local
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9093
 
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+
+  redisinsight:
+    image: redis/redisinsight:latest
+    container_name: redisinsight
+    restart: unless-stopped
+    depends_on:
+      - redis
+    ports:
+      - "5540:5540"
+    volumes:
+      - redisinsight_data:/data
+
   image-request:
     container_name: image-request
     build: ./image-request
@@ -71,6 +92,7 @@ services:
     depends_on:
       - kafka
       - postgres-request
+      - redis
     environment:
       KAFKA_BOOTSTRAP_SERVERS: kafka:9093
       DATABASE_URL: jdbc:postgresql://postgres-request:5432/image-request
@@ -87,6 +109,7 @@ services:
       KAFKA_BOOTSTRAP_SERVERS: kafka:9093
       DATABASE_URL: jdbc:postgresql://postgres-validate:5432/image-validate
       JWT_SECRET: S3cre7key
+      REDIS_HOST: redis
 
   image-generate:
     container_name: image-generate
@@ -104,3 +127,5 @@ volumes:
   postgres_request_data:
   postgres_validate_data:
   postgres_generate_data:
+  redis_data:
+  redisinsight_data:

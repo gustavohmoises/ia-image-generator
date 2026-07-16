@@ -15,7 +15,7 @@ public class ImageValidateService {
     private ValidateProducer validateProducer;
 
     @Autowired
-    private ForbiddenWordRepository forbiddenWordRepository;
+    private ForbiddenWordService forbiddenWordService;
 
     private boolean isValid(String prompt) {
         if (prompt == null || prompt.isBlank()) {
@@ -24,13 +24,9 @@ public class ImageValidateService {
 
         String normalizedPrompt = prompt.toLowerCase();
 
-        List<String> forbiddenWords = forbiddenWordRepository
-                .findAll()
+        return forbiddenWordService.getForbiddenWordsCacheble()
                 .stream()
-                .map(word -> word.getWord().toLowerCase())
-                .toList();
-
-        return forbiddenWords.stream().noneMatch(normalizedPrompt::contains);
+                .noneMatch(normalizedPrompt::contains);
     }
 
     public void process(ImageRequestDTO request) {
