@@ -1,0 +1,25 @@
+package com.iaimagegenerator.imagerequest.controller;
+
+import com.iaimagegenerator.imagerequest.entity.dto.ImageRequestDTO;
+import com.iaimagegenerator.imagerequest.service.ImageRequestService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import jakarta.validation.Valid;
+
+@RestController
+@RequestMapping("/images")
+public class ImageRequestController {
+
+    @Autowired
+    private ImageRequestService imageRequestService;
+
+    @PostMapping
+    public ResponseEntity<ImageRequestDTO> registerRequest(@RequestBody @Valid ImageRequestDTO dto) {
+        ImageRequestDTO request = imageRequestService.registerRequest(dto);
+        return ResponseEntity.accepted().body(request);
+    }
+}
