@@ -43,6 +43,6 @@ public class ImageRequestService {
 
         requestProducer.sendRequest(request);
 
-        return dto;
+        return request;
     }
 }
