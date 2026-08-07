@@ -6,7 +6,6 @@ import com.iaimagegenerator.imagerequest.entity.dto.ImageRequestDTO;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-// TODO - implementar testes unitários
 public final class ImageRequestedMapper {
     private ImageRequestedMapper() {
     }

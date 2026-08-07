@@ -1,6 +1,6 @@
 spring:
   application:
-    name: request
+    name: image-request
 
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}

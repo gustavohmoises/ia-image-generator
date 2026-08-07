@@ -32,7 +32,7 @@ public class KafkaConsumerConfig {
         configs.put(ErrorHandlingDeserializer.KEY_DESERIALIZER_CLASS, JacksonJsonDeserializer.class);
         configs.put(ErrorHandlingDeserializer.VALUE_DESERIALIZER_CLASS, JacksonJsonDeserializer.class);
         configs.put(JacksonJsonDeserializer.TRUSTED_PACKAGES, "*");
-        configs.put(JacksonJsonDeserializer.VALUE_DEFAULT_TYPE, "com.ia_image_generator.image_generate.dto.ImageRequestDTO");
+        configs.put(JacksonJsonDeserializer.VALUE_DEFAULT_TYPE, "com.iaimagegenerator.imagegenerate.entity.dto.ImageRequestDTO");
         return new DefaultKafkaConsumerFactory<>(configs);
     }
 
