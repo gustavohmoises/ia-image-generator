@@ -7,9 +7,9 @@ spring:
 
   datasource:
     driver-class-name: org.postgresql.Driver
-    username: admin
     url: ${DATABASE_URL:jdbc:postgresql://localhost:5434/image-generate}
-    password: admin
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
 
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect

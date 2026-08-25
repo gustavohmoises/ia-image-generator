@@ -16,13 +16,13 @@ public class ImageRequestService {
     @Autowired
     private ImageRequestedRepository imageRequestedRepository;
 
-    public ImageRequestDTO registerRequest(ImageRequestDTO dto) {
-        ImageRequested entity = ImageRequestedMapper.toEntity(dto);
+    public ImageRequestDTO registerRequest(ImageRequestDTO requestDTO) {
+        ImageRequested entity = ImageRequestedMapper.toEntity(requestDTO);
         imageRequestedRepository.save(entity);
 
-        ImageRequestDTO request = ImageRequestedMapper.toDto(entity);
-        requestProducer.sendRequest(request);
+        ImageRequestDTO responseDto = ImageRequestedMapper.toDto(entity);
+        requestProducer.sendRequest(responseDto);
 
-        return request;
+        return responseDto;
     }
 }

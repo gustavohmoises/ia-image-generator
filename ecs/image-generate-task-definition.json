@@ -1,0 +1,46 @@
+{
+  "family": "image-generate-task-definition",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "512",
+  "memory": "1024",
+  "executionRoleArn": "arn:aws:iam::460060050697:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "image-generate",
+      "image": "IMAGE_PLACEHOLDER",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 8082,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        {
+          "name": "DATABASE_URL",
+          "value": "jdbc:postgresql://ia-image-generator.cfaei0i42et5.us-east-2.rds.amazonaws.com:5432/image-generate"
+        },
+        {
+          "name": "DATABASE_USER",
+          "value": "postgres"
+        },
+        {
+          "name": "DATABASE_PASSWORD",
+          "value": "delta1234"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/image-generate",
+          "awslogs-region": "us-east-2",
+          "awslogs-stream-prefix": "ecs",
+          "awslogs-create-group": "true"
+        }
+      }
+    }
+  ]
+}
